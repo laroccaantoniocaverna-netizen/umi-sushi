@@ -1,98 +1,379 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UMI SUSHI | Luxury Experience Sala Consilina</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Umi Sushi — Ristorante giapponese a Sala Consilina. Sashimi fresco, Uramaki e All You Can Eat. Prenota al 0975 209831." />
+  <meta name="theme-color" content="#0A0A0A" />
+  <title>Umi Sushi — Sala Consilina</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Preconnect fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 </head>
 <body>
 
-    <!-- Hero Section -->
-    <header class="hero" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('hero.jpg');">
-        <div class="hero-content">
-            <h1>UMI SUSHI</h1>
-            <p>L'emozione del sushi d'eccellenza a Sala Consilina</p>
-            <a href="tel:0975209831" class="btn-gold">PRENOTA UN TAVOLO</a>
-        </div>
-    </header>
+  <!-- ══ HERO ══════════════════════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero__bg" id="heroBg"></div>
+    <div class="hero__overlay"></div>
 
-    <!-- Social Proof / Features -->
-    <section class="features">
-        <div class="container">
-            <div class="feature">
-                <i class="fas fa-fish"></i>
-                <h3>Pesce Freschissimo</h3>
-                <p>Materia prima selezionata ogni giorno per garantirti il massimo della qualità.</p>
-            </div>
-            <div class="feature">
-                <i class="fas fa-star"></i>
-                <h3>Design & Comfort</h3>
-                <p>Un ambiente curato nei minimi dettagli per le tue serate speciali.</p>
-            </div>
-            <div class="feature">
-                <i class="fas fa-utensils"></i>
-                <h3>Formula AYCE Luxury</h3>
-                <p>Tutta la qualità che cerchi con una varietà di piatti per ogni palato.</p>
-            </div>
-        </div>
-    </section>
+    <div class="hero__content">
+      <p class="hero__eyebrow">Sala Consilina · Dal 2020</p>
 
-    <!-- Gallery & Concept -->
-    <section class="concept">
-        <div class="container grid">
-            <div class="text-box">
-                <h2>L'estetica incontra il gusto</h2>
-                <p>Da UMI SUSHI, ogni piatto è un'opera d'arte. Dalle nostre selezioni di sashimi ai piatti fusion gourmet, l'esperienza visiva anticipa un'esplosione di sapori autentici.</p>
-                <p><strong>"L'animo avvilito perde l'appetito"</strong>: lasciati coccolare dalla nostra ospitalità.</p>
-            </div>
-            <div class="img-box">
-                <img src="piatto.jpg" alt="Piatto Gourmet Umi Sushi">
-            </div>
-        </div>
-    </section>
+      <h1 class="hero__title">
+        <span>umi</span>
+        SUSHI
+      </h1>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <div class="container">
-            <h2 class="section-title">Cosa dicono i nostri clienti</h2>
-            <div class="testimonial-grid">
-                <div class="card">
-                    <div class="stars">★★★★★</div>
-                    <p>"Il pesce è fresco, il riso ben condito e le porzioni giuste. Ho provato il sashimi e alcuni uramaki: davvero buoni. Prezzi onesti per la qualità."</p>
-                    <span>- Mirko</span>
-                </div>
-                <div class="card">
-                    <div class="stars">★★★★★</div>
-                    <p>"All you can eat da provare! Vasta scelta anche per chi non ama il pesce. Prezzi accessibili, qualità ottima, assolutamente consigliato."</p>
-                    <span>- Spartacus91</span>
-                </div>
-                <div class="card">
-                    <div class="stars">★★★★★</div>
-                    <p>"L'ambiente è carino e molto curato. Il personale è molto gentile ed il cibo offerto è buono. I ravioli alla piastra ed il sashimi sono da ordinare!"</p>
-                    <span>- Fabio Leuzzi</span>
-                </div>
-            </div>
-        </div>
-    </section>
+      <div class="hero__divider"></div>
 
-    <!-- Call to Action -->
-    <section class="cta-section" style="background-image: linear-gradient(rgba(139,0,0,0.8), rgba(139,0,0,0.8)), url('ambiente.jpg');">
-        <h2>Vivi l'esperienza UMI SUSHI</h2>
-        <p>Siamo aperti dal martedì alla domenica.</p>
-        <div class="btns">
-            <a href="tel:0975209831" class="btn-white">CHIAMA ORA</a>
-            <a href="https://www.google.com/maps/dir//Via+Fontanelle,+3,+84036+Sala+Consilina+SA" class="btn-gold">RAGGIUNGICI</a>
-        </div>
-    </section>
+      <p class="hero__sub">Autentica cucina giapponese</p>
 
-    <!-- Footer -->
-    <footer>
-        <p>UMI SUSHI - Via Fontanelle, 3, Sala Consilina (SA)</p>
-        <p>Mar-Sab: 12-15 / 18-00 | Dom: 12-15 / 18-00 | Lunedì Chiuso</p>
-    </footer>
+      <a href="tel:0975209831" class="hero__cta" aria-label="Chiama per prenotare">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.13 1 .37 1.97.71 2.9a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.93.34 1.9.58 2.9.71A2 2 0 0122 16.92z"/>
+        </svg>
+        Prenota Ora
+      </a>
+    </div>
+
+    <div class="hero__scroll" aria-hidden="true">
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ══ ABOUT STRIP ════════════════════════ -->
+  <section class="about" aria-label="Highlights">
+    <div class="about__badges">
+      <div class="about__badge">
+        <span class="about__badge-value">4.6</span>
+        <span class="about__badge-label">Google Rating</span>
+      </div>
+      <div class="about__sep" aria-hidden="true"></div>
+      <div class="about__badge">
+        <span class="about__badge-value">76</span>
+        <span class="about__badge-label">Recensioni</span>
+      </div>
+      <div class="about__sep" aria-hidden="true"></div>
+      <div class="about__badge">
+        <span class="about__badge-value">20–30€</span>
+        <span class="about__badge-label">A persona</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ ESPERIENZA ════════════════════════ -->
+  <section class="experience" aria-labelledby="exp-title">
+    <span class="section-label reveal">La nostra cucina</span>
+    <h2 class="section-title reveal" id="exp-title">
+      Un'esperienza<br><em>autentica</em>
+    </h2>
+    <div class="ornament reveal" aria-hidden="true"><div class="ornament-dot"></div></div>
+
+    <p class="experience__text reveal">
+      Pesce freschissimo, riso curato nei minimi dettagli, un ambiente 
+      curato e un servizio attento. Da Umi ogni dettaglio è pensato 
+      per offrire il meglio della tradizione giapponese.
+    </p>
+
+    <div class="experience__grid reveal">
+      <div class="exp-card">
+        <div class="exp-card__icon">🍣</div>
+        <div class="exp-card__title">Sashimi</div>
+        <div class="exp-card__desc">Pesce fresco selezionato ogni giorno</div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card__icon">🌿</div>
+        <div class="exp-card__title">Uramaki</div>
+        <div class="exp-card__desc">Ricette classiche e signature rolls</div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card__icon">♾️</div>
+        <div class="exp-card__title">All You Can Eat</div>
+        <div class="exp-card__desc">Vasta scelta, anche per chi non ama il pesce</div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card__icon">🥟</div>
+        <div class="exp-card__title">Ravioli</div>
+        <div class="exp-card__desc">Gyoza alla piastra da non perdere</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ ORARI ══════════════════════════════ -->
+  <section class="hours" aria-labelledby="hours-title">
+    <span class="section-label reveal">Quando trovarci</span>
+    <h2 class="section-title reveal" id="hours-title">
+      <em>Orari</em> di apertura
+    </h2>
+    <div class="ornament reveal" aria-hidden="true"><div class="ornament-dot"></div></div>
+
+    <div class="reveal">
+      <!-- Aggiorna questo badge in base al giorno/ora corrente -->
+      <span class="status-badge closed" id="statusBadge">Attualmente chiuso</span>
+    </div>
+
+    <table class="hours__table reveal" aria-label="Orari settimanali">
+      <tbody>
+        <tr class="hours__row" data-day="0">
+          <td class="hours__day">Domenica</td>
+          <td class="hours__time">12:00 – 15:00 &nbsp;|&nbsp; 18:00 – 00:00</td>
+        </tr>
+        <tr class="hours__row" data-day="1">
+          <td class="hours__day">Lunedì</td>
+          <td class="hours__time hours__closed">Chiuso</td>
+        </tr>
+        <tr class="hours__row" data-day="2">
+          <td class="hours__day">Martedì</td>
+          <td class="hours__time">12:00 – 15:00 &nbsp;|&nbsp; 18:00 – 00:00</td>
+        </tr>
+        <tr class="hours__row" data-day="3">
+          <td class="hours__day">Mercoledì</td>
+          <td class="hours__time">12:00 – 15:00 &nbsp;|&nbsp; 18:00 – 00:00</td>
+        </tr>
+        <tr class="hours__row" data-day="4">
+          <td class="hours__day">Giovedì</td>
+          <td class="hours__time">12:00 – 15:00 &nbsp;|&nbsp; 18:00 – 00:00</td>
+        </tr>
+        <tr class="hours__row" data-day="5">
+          <td class="hours__day">Venerdì</td>
+          <td class="hours__time">12:00 – 15:00 &nbsp;|&nbsp; 18:00 – 00:00</td>
+        </tr>
+        <tr class="hours__row" data-day="6">
+          <td class="hours__day">Sabato</td>
+          <td class="hours__time">12:00 – 15:00 &nbsp;|&nbsp; 18:00 – 00:00</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p style="margin-top:1.4rem; font-size:0.7rem; color:rgba(245,240,232,0.35); letter-spacing:0.1em;">
+      * Orari soggetti a variazioni. Consigliamo di confermare telefonicamente.
+    </p>
+  </section>
+
+  <!-- ══ RECENSIONI ════════════════════════ -->
+  <section class="reviews" aria-labelledby="reviews-title">
+    <span class="section-label reveal">Cosa dicono di noi</span>
+    <h2 class="section-title reveal" id="reviews-title">
+      Le <em>recensioni</em>
+    </h2>
+    <div class="ornament reveal" aria-hidden="true"><div class="ornament-dot"></div></div>
+
+    <div class="reveal">
+      <div class="reviews__score">
+        <span class="reviews__score-num">4.6</span>
+        <span class="reviews__score-max">/ 5</span>
+      </div>
+      <div class="stars" aria-label="4 stelle e mezza su 5">★★★★★</div>
+      <p class="reviews__count">76 recensioni su Google</p>
+    </div>
+
+    <div class="reviews__grid reveal">
+
+      <article class="review-card">
+        <div class="review-card__header">
+          <div>
+            <p class="review-card__name">Mirko Mantovan</p>
+            <div class="review-card__stars" aria-label="5 stelle">★★★★★</div>
+          </div>
+          <span class="review-card__date">3 settimane fa</span>
+        </div>
+        <p class="review-card__text">
+          Sono stato qui per caso, ma è stata una bella scoperta. Il pesce è fresco, 
+          il riso ben condito e le porzioni giuste. Ho provato il sashimi di salmone 
+          e alcuni uramaki: davvero buoni. Prezzi onesti per la qualità, servizio veloce 
+          e gentile. Ci tornerò sicuramente!
+        </p>
+      </article>
+
+      <article class="review-card">
+        <div class="review-card__header">
+          <div>
+            <p class="review-card__name">Spartacus91</p>
+            <div class="review-card__stars" aria-label="5 stelle">★★★★★</div>
+          </div>
+          <span class="review-card__date">2 mesi fa</span>
+        </div>
+        <p class="review-card__text">
+          All you can eat da provare! Vasta scelta di prodotti anche per chi non ama 
+          il pesce. Prezzi accessibili, qualità dei prodotti ottima, assolutamente 
+          consigliato. Staff professionale e disponibile.
+        </p>
+      </article>
+
+      <article class="review-card">
+        <div class="review-card__header">
+          <div>
+            <p class="review-card__name">Fabio Leuzzi "Sean"</p>
+            <div class="review-card__stars" aria-label="5 stelle">★★★★★</div>
+          </div>
+          <span class="review-card__date">5 mesi fa</span>
+        </div>
+        <p class="review-card__text">
+          L'ambiente è carino e molto curato. Il personale è molto gentile ed il cibo 
+          offerto è buono. Con la formula AYCE non siamo rimasti delusi. I ravioli alla 
+          piastra ed il sashimi sono da ordinare più volte!
+        </p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ══ INFO ═══════════════════════════════ -->
+  <section class="info" aria-labelledby="info-title">
+    <span class="section-label reveal">Dove siamo</span>
+    <h2 class="section-title reveal" id="info-title">
+      <em>Informazioni</em>
+    </h2>
+    <div class="ornament reveal" aria-hidden="true"><div class="ornament-dot"></div></div>
+
+    <div class="reveal">
+      <div class="info__block">
+        <div class="info__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <div>
+          <span class="info__label">Indirizzo</span>
+          <p class="info__value">
+            <a href="https://maps.google.com/?q=Via+Fontanelle+3+Sala+Consilina" target="_blank" rel="noopener">
+              Via Fontanelle, 3 — Sala Consilina (SA)
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <div class="info__block">
+        <div class="info__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.13 1 .37 1.97.71 2.9a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.93.34 1.9.58 2.9.71A2 2 0 0122 16.92z"/>
+          </svg>
+        </div>
+        <div>
+          <span class="info__label">Telefono</span>
+          <p class="info__value"><a href="tel:0975209831">0975 209831</a></p>
+        </div>
+      </div>
+
+      <div class="info__block">
+        <div class="info__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <div>
+          <span class="info__label">Orario</span>
+          <p class="info__value">Mar–Dom: 12–15 &amp; 18–00 &nbsp;|&nbsp; Lun: Chiuso</p>
+        </div>
+      </div>
+
+      <div class="info__block">
+        <div class="info__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2 9m5-9v9m5-9v9m-5-9h5"/>
+          </svg>
+        </div>
+        <div>
+          <span class="info__label">Servizi</span>
+          <p class="info__value">Consumazione sul posto · Asporto</p>
+        </div>
+      </div>
+
+      <div class="info__block">
+        <div class="info__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <line x1="12" y1="1" x2="12" y2="23"/>
+            <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+          </svg>
+        </div>
+        <div>
+          <span class="info__label">Prezzo medio</span>
+          <p class="info__value">20 – 30 € a persona</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ════════════════════════════ -->
+  <footer>
+    <p class="footer__logo">Umi Sushi</p>
+    <p class="footer__sub">Sala Consilina · Campania</p>
+    <div class="footer__line" aria-hidden="true"></div>
+    <p class="footer__copy">© 2025 Umi Sushi · Via Fontanelle, 3 · 84036 Sala Consilina (SA)</p>
+  </footer>
+
+  <!-- ══ STICKY BOTTOM CTA ═══════════════ -->
+  <div class="sticky-cta" role="navigation" aria-label="Azioni rapide">
+    <a href="tel:0975209831" class="sticky-cta__phone" aria-label="Prenota al telefono">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.13 1 .37 1.97.71 2.9a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.93.34 1.9.58 2.9.71A2 2 0 0122 16.92z"/>
+      </svg>
+      Prenota Ora
+    </a>
+    <a href="https://maps.google.com/?q=Via+Fontanelle+3+Sala+Consilina" target="_blank" rel="noopener" class="sticky-cta__maps" aria-label="Apri su Google Maps">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/>
+        <circle cx="12" cy="10" r="3"/>
+      </svg>
+    </a>
+  </div>
+
+  <!-- ══ SCRIPTS ════════════════════════════ -->
+  <script>
+    // Hero background: trigger scale animation after load
+    window.addEventListener('load', () => {
+      document.getElementById('heroBg').classList.add('loaded');
+    });
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => observer.observe(el));
+
+    // Highlight today's row
+    const today = new Date().getDay(); // 0=Sun, 1=Mon, ...
+    document.querySelectorAll('.hours__row').forEach(row => {
+      if (parseInt(row.dataset.day) === today) {
+        row.classList.add('today');
+      }
+    });
+
+    // Open/Closed badge (Italy timezone)
+    (function updateStatus() {
+      const now = new Date(new Date().toLocaleString('en-US', { timeZone: 'Europe/Rome' }));
+      const day = now.getDay();
+      const h   = now.getHours();
+      const m   = now.getMinutes();
+      const mins = h * 60 + m;
+      const badge = document.getElementById('statusBadge');
+      if (!badge) return;
+
+      const isMonday = day === 1;
+      const lunch    = mins >= 720 && mins < 900;   // 12:00–15:00
+      const dinner   = mins >= 1080 && mins < 1440; // 18:00–00:00
+
+      if (!isMonday && (lunch || dinner)) {
+        badge.textContent = 'Aperto ora';
+        badge.classList.remove('closed');
+        badge.classList.add('open');
+      } else {
+        badge.textContent = 'Attualmente chiuso';
+        badge.classList.remove('open');
+        badge.classList.add('closed');
+      }
+    })();
+  </script>
 
 </body>
 </html>
