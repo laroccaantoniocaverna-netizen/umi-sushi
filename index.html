@@ -63,6 +63,51 @@
     </div>
   </section>
 
+  <!-- ══ ABOUT US ══════════════════════════ -->
+  <section class="about-us" aria-labelledby="about-title">
+    <span class="section-label reveal">Chi siamo</span>
+    <h2 class="section-title reveal" id="about-title">
+      La nostra <em>storia</em>
+    </h2>
+    <div class="ornament reveal" aria-hidden="true"><div class="ornament-dot"></div></div>
+
+    <blockquote class="about-us__quote reveal">
+      Il Giappone non è solo una cucina.<br>
+      È una filosofia del rispetto — per il pesce, per il riso, per chi si siede al tavolo.
+    </blockquote>
+
+    <p class="about-us__text reveal">
+      Umi Sushi nasce dalla passione per la cucina giapponese autentica, portata nel cuore del Vallo di Diano.
+      Il nostro team seleziona ogni giorno il pesce più fresco, lavora il riso con cura artigianale e crea
+      un'esperienza dove tradizione e semplicità si incontrano in ogni piatto. Che tu venga per un pranzo
+      veloce o per una serata con l'All You Can Eat, ogni visita da Umi è pensata per lasciarti qualcosa.
+    </p>
+
+    <div class="about-us__pillars reveal">
+      <div class="pillar">
+        <span class="pillar__num">01</span>
+        <div class="pillar__body">
+          <p class="pillar__title">Freschezza ogni giorno</p>
+          <p class="pillar__desc">Il pesce viene selezionato quotidianamente per garantire qualità e sapore in ogni morso</p>
+        </div>
+      </div>
+      <div class="pillar">
+        <span class="pillar__num">02</span>
+        <div class="pillar__body">
+          <p class="pillar__title">Tradizione giapponese</p>
+          <p class="pillar__desc">Tecniche autentiche, ricette classiche e signature rolls pensati con rispetto per la cultura</p>
+        </div>
+      </div>
+      <div class="pillar">
+        <span class="pillar__num">03</span>
+        <div class="pillar__body">
+          <p class="pillar__title">Accoglienza di cuore</p>
+          <p class="pillar__desc">Uno staff professionale e disponibile che ti fa sentire a casa sin dal primo momento</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ══ ESPERIENZA ════════════════════════ -->
   <section class="experience" aria-labelledby="exp-title">
     <span class="section-label reveal">La nostra cucina</span>
@@ -109,46 +154,41 @@
     </h2>
     <div class="ornament reveal" aria-hidden="true"><div class="ornament-dot"></div></div>
 
-    <div class="reveal">
-      <!-- Aggiorna questo badge in base al giorno/ora corrente -->
-      <span class="status-badge closed" id="statusBadge">Attualmente chiuso</span>
+    <!-- Card "oggi" — compilata via JS -->
+    <div class="hours__today-card reveal" id="todayCard">
+      <div class="hours__today-top">
+        <span class="hours__today-day" id="todayName">—</span>
+        <span class="status-badge closed" id="statusBadge">—</span>
+      </div>
+      <!-- Se aperto: due session card -->
+      <div class="hours__today-sessions" id="todaySessions" style="display:none">
+        <div class="hours__session" id="sessionLunch">
+          <span class="hours__session-label">Pranzo</span>
+          <span class="hours__session-time">12:00 – 15:00</span>
+        </div>
+        <div class="hours__session" id="sessionDinner">
+          <span class="hours__session-label">Cena</span>
+          <span class="hours__session-time">18:00 – 00:00</span>
+        </div>
+      </div>
+      <!-- Se chiuso oggi -->
+      <p class="hours__today-closed" id="todayClosed" style="display:none">Oggi siamo chiusi</p>
+      <!-- Prossima apertura -->
+      <p class="hours__next" id="hoursNext"></p>
     </div>
 
-    <table class="hours__table reveal" aria-label="Orari settimanali">
-      <tbody>
-        <tr class="hours__row" data-day="0">
-          <td class="hours__day">Domenica</td>
-          <td class="hours__time">12:00 – 15:00 &nbsp;|&nbsp; 18:00 – 00:00</td>
-        </tr>
-        <tr class="hours__row" data-day="1">
-          <td class="hours__day">Lunedì</td>
-          <td class="hours__time hours__closed">Chiuso</td>
-        </tr>
-        <tr class="hours__row" data-day="2">
-          <td class="hours__day">Martedì</td>
-          <td class="hours__time">12:00 – 15:00 &nbsp;|&nbsp; 18:00 – 00:00</td>
-        </tr>
-        <tr class="hours__row" data-day="3">
-          <td class="hours__day">Mercoledì</td>
-          <td class="hours__time">12:00 – 15:00 &nbsp;|&nbsp; 18:00 – 00:00</td>
-        </tr>
-        <tr class="hours__row" data-day="4">
-          <td class="hours__day">Giovedì</td>
-          <td class="hours__time">12:00 – 15:00 &nbsp;|&nbsp; 18:00 – 00:00</td>
-        </tr>
-        <tr class="hours__row" data-day="5">
-          <td class="hours__day">Venerdì</td>
-          <td class="hours__time">12:00 – 15:00 &nbsp;|&nbsp; 18:00 – 00:00</td>
-        </tr>
-        <tr class="hours__row" data-day="6">
-          <td class="hours__day">Sabato</td>
-          <td class="hours__time">12:00 – 15:00 &nbsp;|&nbsp; 18:00 – 00:00</td>
-        </tr>
-      </tbody>
-    </table>
+    <!-- Pill strip settimanale -->
+    <div class="hours__week reveal" id="weekPills" aria-hidden="true">
+      <!-- generato via JS -->
+    </div>
 
-    <p style="margin-top:1.4rem; font-size:0.7rem; color:rgba(245,240,232,0.35); letter-spacing:0.1em;">
-      * Orari soggetti a variazioni. Consigliamo di confermare telefonicamente.
+    <!-- Lista completa -->
+    <div class="hours__list reveal" id="hoursList" aria-label="Orari settimanali completi">
+      <!-- generato via JS -->
+    </div>
+
+    <p style="margin-top:1.4rem; font-size:0.68rem; color:rgba(245,240,232,0.28); letter-spacing:0.08em;">
+      * Orari soggetti a variazioni. Si consiglia di confermare telefonicamente.
     </p>
   </section>
 
@@ -324,7 +364,7 @@
 
   <!-- ══ SCRIPTS ════════════════════════════ -->
   <script>
-    // Hero background: trigger scale animation after load
+    // Hero background
     window.addEventListener('load', () => {
       document.getElementById('heroBg').classList.add('loaded');
     });
@@ -341,38 +381,122 @@
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     reveals.forEach(el => observer.observe(el));
 
-    // Highlight today's row
-    const today = new Date().getDay(); // 0=Sun, 1=Mon, ...
-    document.querySelectorAll('.hours__row').forEach(row => {
-      if (parseInt(row.dataset.day) === today) {
-        row.classList.add('today');
+    // ─── Orari ─────────────────────────────────────────────────────
+    const DAYS = ['Domenica','Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato'];
+    const DAYS_SHORT = ['Dom','Lun','Mar','Mer','Gio','Ven','Sab'];
+    // true = aperto (pranzo 12-15 e cena 18-00), false = chiuso
+    const OPEN = [true, false, true, true, true, true, true]; // 0=Dom … 6=Sab
+
+    function getRomeNow() {
+      return new Date(new Date().toLocaleString('en-US', { timeZone: 'Europe/Rome' }));
+    }
+
+    function isLunch(mins)  { return mins >= 720  && mins < 900; }  // 12:00–15:00
+    function isDinner(mins) { return mins >= 1080 && mins < 1440; } // 18:00–00:00
+
+    function nextOpening(fromDay, fromMins) {
+      // cerca la prossima sessione aperta
+      for (let offset = 0; offset <= 7; offset++) {
+        const d = (fromDay + offset) % 7;
+        if (!OPEN[d]) continue;
+        if (offset === 0) {
+          // stesso giorno: controlla se c'è ancora una sessione
+          if (fromMins < 720)  return { day: d, session: 'pranzo', offset };
+          if (fromMins < 1080) return { day: d, session: 'cena', offset };
+          // dopo la cena → prossimo giorno
+          continue;
+        }
+        return { day: d, session: 'pranzo', offset };
       }
-    });
+      return null;
+    }
 
-    // Open/Closed badge (Italy timezone)
-    (function updateStatus() {
-      const now = new Date(new Date().toLocaleString('en-US', { timeZone: 'Europe/Rome' }));
-      const day = now.getDay();
-      const h   = now.getHours();
-      const m   = now.getMinutes();
-      const mins = h * 60 + m;
-      const badge = document.getElementById('statusBadge');
-      if (!badge) return;
+    function buildHours() {
+      const now  = getRomeNow();
+      const day  = now.getDay();
+      const mins = now.getHours() * 60 + now.getMinutes();
 
-      const isMonday = day === 1;
-      const lunch    = mins >= 720 && mins < 900;   // 12:00–15:00
-      const dinner   = mins >= 1080 && mins < 1440; // 18:00–00:00
+      // ── Badge + card oggi ──
+      const badge    = document.getElementById('statusBadge');
+      const todayName = document.getElementById('todayName');
+      const sessions = document.getElementById('todaySessions');
+      const closedMsg = document.getElementById('todayClosed');
+      const nextMsg  = document.getElementById('hoursNext');
+      const lunchCard  = document.getElementById('sessionLunch');
+      const dinnerCard = document.getElementById('sessionDinner');
 
-      if (!isMonday && (lunch || dinner)) {
+      todayName.textContent = DAYS[day];
+
+      const isOpenNow = OPEN[day] && (isLunch(mins) || isDinner(mins));
+
+      if (isOpenNow) {
         badge.textContent = 'Aperto ora';
-        badge.classList.remove('closed');
-        badge.classList.add('open');
+        badge.className   = 'status-badge open';
+        sessions.style.display = 'flex';
+        closedMsg.style.display = 'none';
+
+        lunchCard.classList.toggle('active', isLunch(mins));
+        dinnerCard.classList.toggle('active', isDinner(mins));
+
+        // prossima chiusura
+        if (isLunch(mins)) {
+          nextMsg.innerHTML = 'Chiude alle <strong>15:00</strong> · Riapre alle <strong>18:00</strong>';
+        } else {
+          nextMsg.innerHTML = 'Chiude a <strong>mezzanotte</strong>';
+        }
       } else {
         badge.textContent = 'Attualmente chiuso';
-        badge.classList.remove('open');
-        badge.classList.add('closed');
+        badge.className   = 'status-badge closed';
+        sessions.style.display = OPEN[day] ? 'flex' : 'none';
+        closedMsg.style.display = OPEN[day] ? 'none' : 'block';
+
+        if (OPEN[day]) {
+          // chiuso tra pranzo e cena
+          lunchCard.classList.remove('active');
+          dinnerCard.classList.remove('active');
+          nextMsg.innerHTML = 'Riapre oggi alle <strong>18:00</strong>';
+        } else {
+          // lunedì o altro giorno chiuso
+          const next = nextOpening(day, mins);
+          if (next) {
+            const label = next.offset === 0 ? 'oggi' : next.offset === 1 ? 'domani' : DAYS[next.day];
+            nextMsg.innerHTML = `Prossima apertura: <strong>${label} alle 12:00</strong>`;
+          }
+        }
       }
-    })();
+
+      // ── Week pills ──
+      const pillsEl = document.getElementById('weekPills');
+      pillsEl.innerHTML = '';
+      DAYS_SHORT.forEach((name, i) => {
+        const pill = document.createElement('div');
+        pill.className = 'hours__pill'
+          + (i === day ? ' is-today' : '')
+          + (!OPEN[i] ? ' is-closed-day' : '');
+        pill.innerHTML = `<span class="hours__pill-day">${name}</span><div class="hours__pill-dot"></div>`;
+        pillsEl.appendChild(pill);
+      });
+
+      // ── Lista completa ──
+      const listEl = document.getElementById('hoursList');
+      listEl.innerHTML = '';
+      DAYS.forEach((name, i) => {
+        const item = document.createElement('div');
+        item.className = 'hours__item' + (i === day ? ' is-today' : '');
+        if (OPEN[i]) {
+          item.innerHTML = `
+            <span class="hours__item-day">${name}</span>
+            <span class="hours__item-time">12:00 – 15:00 &nbsp;·&nbsp; 18:00 – 00:00</span>`;
+        } else {
+          item.innerHTML = `
+            <span class="hours__item-day">${name}</span>
+            <span class="hours__item-closed">Chiuso</span>`;
+        }
+        listEl.appendChild(item);
+      });
+    }
+
+    buildHours();
   </script>
 
 </body>
