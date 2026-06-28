@@ -373,6 +373,55 @@ section {
   line-height: 1.5;
 }
 
+/* Banner prossima apertura */
+.hours__next-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1rem;
+  background: rgba(197,164,106,0.08);
+  border: 1px solid rgba(197,164,106,0.28);
+  border-radius: var(--radius-sm);
+  margin-top: 0.2rem;
+}
+
+.hours__next-banner-icon {
+  color: var(--gold);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.hours__next-banner-label {
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.2rem;
+}
+
+.hours__next-banner-time {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--ivory);
+  line-height: 1.1;
+}
+
+/* ── About badges: allow 4 items on one row ── */
+.about__badges {
+  flex-wrap: nowrap;
+  gap: 0.8rem;
+}
+
+.about__badge-value {
+  font-size: clamp(1.1rem, 4vw, 1.8rem);
+}
+
+.about__badge-label {
+  font-size: 0.55rem;
+}
+
 /* ══════════════════════════════
    ABOUT US
    ══════════════════════════════ */
