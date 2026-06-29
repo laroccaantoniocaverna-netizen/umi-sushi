@@ -66,6 +66,9 @@
         <span class="about__badge-label">All you can eat cena</span>
       </div>
     </div>
+    <p class="about__price-note">
+      * I prezzi non includono bevande e coperto (1,50€)
+    </p>
   </section>
 
   <!-- ══ ORARI ══════════════════════════════ -->
@@ -109,13 +112,18 @@
       </div>
     </div>
 
-    <!-- Pill strip settimanale -->
-    <div class="hours__week reveal" id="weekPills" aria-hidden="true"></div>
+    <div class="hours__schedule-summary reveal">
+      <span class="hours__schedule-item">
+        <span class="hours__schedule-days">Martedì – Domenica</span>
+        <span class="hours__schedule-times">12:00–15:00 &nbsp;·&nbsp; 18:00–00:00</span>
+      </span>
+      <span class="hours__schedule-item hours__schedule-item--closed">
+        <span class="hours__schedule-days">Lunedì</span>
+        <span class="hours__schedule-times">Chiuso</span>
+      </span>
+    </div>
 
-    <!-- Lista completa -->
-    <div class="hours__list reveal" id="hoursList" aria-label="Orari settimanali completi"></div>
-
-    <p style="margin-top:1.4rem; font-size:0.68rem; color:rgba(245,240,232,0.28); letter-spacing:0.08em;">
+    <p style="margin-top:1rem; font-size:0.68rem; color:rgba(245,240,232,0.28); letter-spacing:0.08em;">
       * Orari soggetti a variazioni. Si consiglia di confermare telefonicamente.
     </p>
   </section>
@@ -182,23 +190,31 @@
     <div class="experience__grid reveal">
       <div class="exp-card">
         <div class="exp-card__icon">🍣</div>
-        <div class="exp-card__title">Sashimi</div>
-        <div class="exp-card__desc">Pesce fresco selezionato ogni giorno</div>
+        <div class="exp-card__body">
+          <div class="exp-card__title">Sashimi</div>
+          <div class="exp-card__desc">Pesce fresco selezionato ogni giorno</div>
+        </div>
       </div>
       <div class="exp-card">
         <div class="exp-card__icon">🌿</div>
-        <div class="exp-card__title">Uramaki</div>
-        <div class="exp-card__desc">Ricette classiche e signature rolls</div>
+        <div class="exp-card__body">
+          <div class="exp-card__title">Uramaki</div>
+          <div class="exp-card__desc">Ricette classiche e signature rolls</div>
+        </div>
       </div>
       <div class="exp-card">
         <div class="exp-card__icon">♾️</div>
-        <div class="exp-card__title">All You Can Eat</div>
-        <div class="exp-card__desc">Vasta scelta, anche per chi non ama il pesce</div>
+        <div class="exp-card__body">
+          <div class="exp-card__title">All You Can Eat</div>
+          <div class="exp-card__desc">Vasta scelta, anche per chi non ama il pesce</div>
+        </div>
       </div>
       <div class="exp-card">
         <div class="exp-card__icon">🥟</div>
-        <div class="exp-card__title">Ravioli</div>
-        <div class="exp-card__desc">Gyoza alla piastra da non perdere</div>
+        <div class="exp-card__body">
+          <div class="exp-card__title">Ravioli alla piastra</div>
+          <div class="exp-card__desc">Gyoza croccanti da ordinare più volte</div>
+        </div>
       </div>
     </div>
   </section>
@@ -483,35 +499,6 @@
         }
       }
 
-      // ── Week pills ──
-      const pillsEl = document.getElementById('weekPills');
-      pillsEl.innerHTML = '';
-      DAYS_SHORT.forEach((name, i) => {
-        const pill = document.createElement('div');
-        pill.className = 'hours__pill'
-          + (i === day ? ' is-today' : '')
-          + (!OPEN[i] ? ' is-closed-day' : '');
-        pill.innerHTML = `<span class="hours__pill-day">${name}</span><div class="hours__pill-dot"></div>`;
-        pillsEl.appendChild(pill);
-      });
-
-      // ── Lista completa ──
-      const listEl = document.getElementById('hoursList');
-      listEl.innerHTML = '';
-      DAYS.forEach((name, i) => {
-        const item = document.createElement('div');
-        item.className = 'hours__item' + (i === day ? ' is-today' : '');
-        if (OPEN[i]) {
-          item.innerHTML = `
-            <span class="hours__item-day">${name}</span>
-            <span class="hours__item-time">12:00 – 15:00 &nbsp;·&nbsp; 18:00 – 00:00</span>`;
-        } else {
-          item.innerHTML = `
-            <span class="hours__item-day">${name}</span>
-            <span class="hours__item-closed">Chiuso</span>`;
-        }
-        listEl.appendChild(item);
-      });
     }
 
     buildHours();
