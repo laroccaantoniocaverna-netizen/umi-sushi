@@ -284,11 +284,14 @@ section {
 }
 
 .about__badges {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  max-width: 420px;
+  margin: 0 auto;
+  border: 1px solid rgba(197,164,106,0.1);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
 }
 
 .about__badge {
@@ -296,27 +299,29 @@ section {
   flex-direction: column;
   align-items: center;
   gap: 0.3rem;
+  padding: 1.1rem 0.8rem;
+  border: 1px solid rgba(197,164,106,0.08);
 }
 
 .about__badge-value {
   font-family: var(--font-display);
-  font-size: 1.8rem;
+  font-size: clamp(1.3rem, 5.5vw, 1.8rem);
   font-weight: 400;
   color: var(--gold);
   line-height: 1;
 }
 
 .about__badge-label {
-  font-size: 0.6rem;
-  letter-spacing: 0.25em;
+  font-size: 0.52rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(245,240,232,0.5);
+  color: rgba(245,240,232,0.45);
+  text-align: center;
+  line-height: 1.4;
 }
 
 .about__sep {
-  width: 1px;
-  height: 36px;
-  background: rgba(197,164,106,0.25);
+  display: none;
 }
 
 /* ══════════════════════════════
@@ -421,18 +426,53 @@ section {
   line-height: 1.1;
 }
 
-/* ── About badges: allow 4 items on one row ── */
-.about__badges {
-  flex-wrap: nowrap;
-  gap: 0.8rem;
+/* Riepilogo rapido orari */
+.hours__schedule-summary {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem 1rem;
+  margin-top: 1.3rem;
+  padding: 1rem 1.2rem;
+  background: var(--midnight);
+  border: 1px solid rgba(197,164,106,0.1);
+  border-radius: var(--radius-sm);
 }
 
-.about__badge-value {
-  font-size: clamp(1.1rem, 4vw, 1.8rem);
+.hours__schedule-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
 }
 
-.about__badge-label {
-  font-size: 0.55rem;
+.hours__schedule-days {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--ivory);
+  white-space: nowrap;
+}
+
+.hours__schedule-times {
+  font-size: 0.7rem;
+  color: rgba(245,240,232,0.5);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.hours__schedule-item--closed .hours__schedule-days {
+  color: rgba(245,240,232,0.35);
+}
+
+.hours__schedule-item--closed .hours__schedule-times {
+  font-style: italic;
+  color: rgba(245,240,232,0.28);
+}
+
+.hours__schedule-sep {
+  color: rgba(197,164,106,0.25);
+  font-size: 0.9rem;
+  align-self: center;
 }
 
 /* ══════════════════════════════
