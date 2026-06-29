@@ -1,536 +1,1041 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content="Umi Sushi — Ristorante giapponese a Sala Consilina. Sashimi fresco, Uramaki e All You Can Eat. Prenota al 0975 209831." />
-  <meta name="theme-color" content="#0A0A0A" />
-  <title>Umi Sushi — Sala Consilina</title>
-  <link rel="stylesheet" href="style.css" />
-  <!-- Preconnect fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-</head>
-<body>
+/* ═══════════════════════════════════════
+   UMI SUSHI — Luxury Mobile-First CSS
+   Palette: Midnight · Ivory · Warm Gold · Ink
+   ═══════════════════════════════════════ */
 
-  <!-- ══ HERO ══════════════════════════════ -->
-  <section class="hero" id="hero">
-    <div class="hero__bg" id="heroBg"></div>
-    <div class="hero__overlay"></div>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap');
 
-    <div class="hero__content">
-      <p class="hero__eyebrow">Sala Consilina · Dal 2020</p>
+/* ── Reset & Base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-      <h1 class="hero__title">
-        <span>umi</span>
-        SUSHI
-      </h1>
+:root {
+  --midnight:    #0A0A0A;
+  --charcoal:    #1A1A1A;
+  --ink:         #2D2D2D;
+  --gold:        #C5A46A;
+  --gold-light:  #DFC28F;
+  --ivory:       #F5F0E8;
+  --cream:       #FAF7F2;
+  --white:       #FFFFFF;
+  --glass:       rgba(10,10,10,0.55);
+  --glass-light: rgba(10,10,10,0.30);
 
-      <div class="hero__divider"></div>
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body:    'Jost', sans-serif;
 
-      <p class="hero__sub">Autentica cucina giapponese</p>
+  --section-pad: 4rem 1.5rem;
+  --radius-sm:   4px;
+  --radius-md:   12px;
+  --transition:  0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
 
-      <a href="tel:0975209831" class="hero__cta" aria-label="Chiama per prenotare">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.13 1 .37 1.97.71 2.9a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.93.34 1.9.58 2.9.71A2 2 0 0122 16.92z"/>
-        </svg>
-        Prenota Ora
-      </a>
-    </div>
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
 
-    <div class="hero__scroll" aria-hidden="true">
-      <div class="hero__scroll-line"></div>
-    </div>
-  </section>
+body {
+  background: var(--midnight);
+  color: var(--ivory);
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
 
-  <!-- ══ ABOUT STRIP ════════════════════════ -->
-  <section class="about" aria-label="Highlights">
-    <div class="about__badges">
-      <div class="about__badge">
-        <span class="about__badge-value">4.6</span>
-        <span class="about__badge-label">Google Rating</span>
-      </div>
-      <div class="about__sep" aria-hidden="true"></div>
-      <div class="about__badge">
-        <span class="about__badge-value">76</span>
-        <span class="about__badge-label">Recensioni</span>
-      </div>
-      <div class="about__sep" aria-hidden="true"></div>
-      <div class="about__badge">
-        <span class="about__badge-value">17,90€</span>
-        <span class="about__badge-label">All you can eat pranzo</span>
-      </div>
-      <div class="about__sep" aria-hidden="true"></div>
-      <div class="about__badge">
-        <span class="about__badge-value">24,90€</span>
-        <span class="about__badge-label">All you can eat cena</span>
-      </div>
-    </div>
-    <p style="margin-top:1rem; font-size:0.6rem; color:rgba(245,240,232,0.32); letter-spacing:0.12em; text-align:center;">
-      * I prezzi non includono bevande e coperto (1,50€)
-    </p>
-  </section> ══════════════════════════════ -->
-  <section class="hours" aria-labelledby="hours-title">
-    <span class="section-label reveal">Quando trovarci</span>
-    <h2 class="section-title reveal" id="hours-title">
-      <em>Orari</em> di apertura
-    </h2>
-    <div class="ornament reveal" aria-hidden="true"><div class="ornament-dot"></div></div>
+img { max-width: 100%; display: block; }
+a  { color: inherit; text-decoration: none; }
 
-    <!-- Card "oggi" — compilata via JS -->
-    <div class="hours__today-card reveal" id="todayCard">
-      <div class="hours__today-top">
-        <span class="hours__today-day" id="todayName">—</span>
-        <span class="status-badge closed" id="statusBadge">—</span>
-      </div>
-      <!-- Se aperto: due session card -->
-      <div class="hours__today-sessions" id="todaySessions" style="display:none">
-        <div class="hours__session" id="sessionLunch">
-          <span class="hours__session-label">Pranzo</span>
-          <span class="hours__session-time">12:00 – 15:00</span>
-        </div>
-        <div class="hours__session" id="sessionDinner">
-          <span class="hours__session-label">Cena</span>
-          <span class="hours__session-time">18:00 – 00:00</span>
-        </div>
-      </div>
-      <!-- Se chiuso oggi -->
-      <p class="hours__today-closed" id="todayClosed" style="display:none">Oggi siamo chiusi</p>
-      <!-- Banner prossima apertura -->
-      <div class="hours__next-banner" id="hoursNextBanner" style="display:none">
-        <div class="hours__next-banner-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
-            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-          </svg>
-        </div>
-        <div>
-          <p class="hours__next-banner-label">Prossima apertura</p>
-          <p class="hours__next-banner-time" id="hoursNextTime">—</p>
-        </div>
-      </div>
-    </div>
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--midnight); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
 
-    <div class="hours__schedule-summary reveal">
-      <span class="hours__schedule-item">
-        <span class="hours__schedule-days">Mar – Dom</span>
-        <span class="hours__schedule-times">12:00–15:00 &nbsp;·&nbsp; 18:00–00:00</span>
-      </span>
-      <span class="hours__schedule-sep" aria-hidden="true">|</span>
-      <span class="hours__schedule-item hours__schedule-item--closed">
-        <span class="hours__schedule-days">Lunedì</span>
-        <span class="hours__schedule-times">Chiuso</span>
-      </span>
-    </div>
+/* ══════════════════════════════
+   HERO
+   ══════════════════════════════ */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
 
-    <p style="margin-top:1rem; font-size:0.68rem; color:rgba(245,240,232,0.28); letter-spacing:0.08em;">
-      * Orari soggetti a variazioni. Si consiglia di confermare telefonicamente.
-    </p>
-  </section>
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('ambiente.jpg');
+  background-size: cover;
+  background-position: center 30%;
+  transform: scale(1.04);
+  transition: transform 8s ease-out;
+}
 
-  <!-- ══ ABOUT US ══════════════════════════ -->
-  <section class="about-us" aria-labelledby="about-title">
-    <span class="section-label reveal">Chi siamo</span>
-    <h2 class="section-title reveal" id="about-title">
-      La nostra <em>storia</em>
-    </h2>
-    <div class="ornament reveal" aria-hidden="true"><div class="ornament-dot"></div></div>
+.hero__bg.loaded {
+  transform: scale(1);
+}
 
-    <blockquote class="about-us__quote reveal">
-      Il Giappone non è solo una cucina.<br>
-      È una filosofia del rispetto — per il pesce, per il riso, per chi si siede al tavolo.
-    </blockquote>
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.45) 0%,
+    rgba(0,0,0,0.55) 50%,
+    rgba(0,0,0,0.80) 100%
+  );
+}
 
-    <p class="about-us__text reveal">
-      Umi Sushi nasce dalla passione per la cucina giapponese autentica, portata nel cuore del Vallo di Diano.
-      Il nostro team seleziona ogni giorno il pesce più fresco, lavora il riso con cura artigianale e crea
-      un'esperienza dove tradizione e semplicità si incontrano in ogni piatto. Che tu venga per un pranzo
-      veloce o per una serata con l'All You Can Eat, ogni visita da Umi è pensata per lasciarti qualcosa.
-    </p>
+.hero__content {
+  position: relative;
+  z-index: 2;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
 
-    <div class="about-us__pillars reveal">
-      <div class="pillar">
-        <span class="pillar__num">01</span>
-        <div class="pillar__body">
-          <p class="pillar__title">Freschezza ogni giorno</p>
-          <p class="pillar__desc">Il pesce viene selezionato quotidianamente per garantire qualità e sapore in ogni morso</p>
-        </div>
-      </div>
-      <div class="pillar">
-        <span class="pillar__num">02</span>
-        <div class="pillar__body">
-          <p class="pillar__title">Tradizione giapponese</p>
-          <p class="pillar__desc">Tecniche autentiche, ricette classiche e signature rolls pensati con rispetto per la cultura</p>
-        </div>
-      </div>
-      <div class="pillar">
-        <span class="pillar__num">03</span>
-        <div class="pillar__body">
-          <p class="pillar__title">Accoglienza di cuore</p>
-          <p class="pillar__desc">Uno staff professionale e disponibile che ti fa sentire a casa sin dal primo momento</p>
-        </div>
-      </div>
-    </div>
-  </section>
+.hero__eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 1.2rem;
+  opacity: 0;
+  animation: fadeUp 1s 0.3s forwards;
+}
 
-  <!-- ══ ESPERIENZA ════════════════════════ -->
-  <section class="experience" aria-labelledby="exp-title">
-    <span class="section-label reveal">La nostra cucina</span>
-    <h2 class="section-title reveal" id="exp-title">
-      Un'esperienza<br><em>autentica</em>
-    </h2>
-    <div class="ornament reveal" aria-hidden="true"><div class="ornament-dot"></div></div>
+.hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(3.8rem, 16vw, 7rem);
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  line-height: 0.95;
+  color: var(--white);
+  text-shadow: 0 2px 40px rgba(0,0,0,0.5);
+  opacity: 0;
+  animation: fadeUp 1s 0.6s forwards;
+}
 
-    <p class="experience__text reveal">
-      Pesce freschissimo, riso curato nei minimi dettagli, un ambiente
-      curato e un servizio attento. Da Umi ogni dettaglio è pensato
-      per offrire il meglio della tradizione giapponese.
-    </p>
+.hero__title span {
+  display: block;
+  font-style: italic;
+  font-size: 0.55em;
+  letter-spacing: 0.3em;
+  color: var(--gold-light);
+  margin-bottom: 0.3em;
+}
 
-    <div class="experience__grid reveal">
-      <div class="exp-card">
-        <div class="exp-card__icon">🍣</div>
-        <div class="exp-card__body">
-          <div class="exp-card__title">Sashimi</div>
-          <div class="exp-card__desc">Pesce fresco selezionato ogni giorno</div>
-        </div>
-      </div>
-      <div class="exp-card">
-        <div class="exp-card__icon">🌿</div>
-        <div class="exp-card__body">
-          <div class="exp-card__title">Uramaki</div>
-          <div class="exp-card__desc">Ricette classiche e signature rolls</div>
-        </div>
-      </div>
-      <div class="exp-card">
-        <div class="exp-card__icon">♾️</div>
-        <div class="exp-card__body">
-          <div class="exp-card__title">All You Can Eat</div>
-          <div class="exp-card__desc">Vasta scelta, anche per chi non ama il pesce</div>
-        </div>
-      </div>
-      <div class="exp-card">
-        <div class="exp-card__icon">🥟</div>
-        <div class="exp-card__body">
-          <div class="exp-card__title">Ravioli alla piastra</div>
-          <div class="exp-card__desc">Gyoza croccanti da ordinare più volte</div>
-        </div>
-      </div>
-    </div>
-  </section>
+.hero__divider {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 1.6rem auto;
+  opacity: 0;
+  animation: fadeIn 1s 0.9s forwards;
+}
 
-  <!-- ══ RECENSIONI ════════════════════════ -->
-  <section class="reviews" aria-labelledby="reviews-title">
-    <span class="section-label reveal">Cosa dicono di noi</span>
-    <h2 class="section-title reveal" id="reviews-title">
-      Le <em>recensioni</em>
-    </h2>
-    <div class="ornament reveal" aria-hidden="true"><div class="ornament-dot"></div></div>
+.hero__sub {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(245,240,232,0.75);
+  opacity: 0;
+  animation: fadeUp 1s 1s forwards;
+  margin-bottom: 2.4rem;
+}
 
-    <div class="reveal">
-      <div class="reviews__score">
-        <span class="reviews__score-num">4.6</span>
-        <span class="reviews__score-max">/ 5</span>
-      </div>
-      <div class="stars" aria-label="4 stelle e mezza su 5">★★★★★</div>
-      <p class="reviews__count">76 recensioni su Google</p>
-    </div>
+.hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 1rem 2.2rem;
+  background: var(--gold);
+  color: var(--midnight);
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+  opacity: 0;
+  animation: fadeUp 1s 1.2s forwards;
+  min-height: 52px;
+}
 
-    <div class="reviews__grid reveal">
+.hero__cta svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
 
-      <article class="review-card">
-        <div class="review-card__header">
-          <div>
-            <p class="review-card__name">Mirko Mantovan</p>
-            <div class="review-card__stars" aria-label="5 stelle">★★★★★</div>
-          </div>
-          <span class="review-card__date">3 settimane fa</span>
-        </div>
-        <p class="review-card__text">
-          Sono stato qui per caso, ma è stata una bella scoperta. Il pesce è fresco, 
-          il riso ben condito e le porzioni giuste. Ho provato il sashimi di salmone 
-          e alcuni uramaki: davvero buoni. Prezzi onesti per la qualità, servizio veloce 
-          e gentile. Ci tornerò sicuramente!
-        </p>
-      </article>
+.hero__cta:hover,
+.hero__cta:active {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(197,164,106,0.35);
+}
 
-      <article class="review-card">
-        <div class="review-card__header">
-          <div>
-            <p class="review-card__name">Spartacus91</p>
-            <div class="review-card__stars" aria-label="5 stelle">★★★★★</div>
-          </div>
-          <span class="review-card__date">2 mesi fa</span>
-        </div>
-        <p class="review-card__text">
-          All you can eat da provare! Vasta scelta di prodotti anche per chi non ama 
-          il pesce. Prezzi accessibili, qualità dei prodotti ottima, assolutamente 
-          consigliato. Staff professionale e disponibile.
-        </p>
-      </article>
+.hero__scroll {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0;
+  animation: fadeIn 1.5s 1.8s forwards;
+}
 
-      <article class="review-card">
-        <div class="review-card__header">
-          <div>
-            <p class="review-card__name">Fabio Leuzzi "Sean"</p>
-            <div class="review-card__stars" aria-label="5 stelle">★★★★★</div>
-          </div>
-          <span class="review-card__date">5 mesi fa</span>
-        </div>
-        <p class="review-card__text">
-          L'ambiente è carino e molto curato. Il personale è molto gentile ed il cibo 
-          offerto è buono. Con la formula AYCE non siamo rimasti delusi. I ravioli alla 
-          piastra ed il sashimi sono da ordinare più volte!
-        </p>
-      </article>
+.hero__scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: scrollPulse 2s 2s ease-in-out infinite;
+}
 
-    </div>
-  </section>
+/* ══════════════════════════════
+   SECTION SHARED
+   ══════════════════════════════ */
+section {
+  padding: var(--section-pad);
+}
 
-  <!-- ══ INFO ═══════════════════════════════ -->
-  <section class="info" aria-labelledby="info-title">
-    <span class="section-label reveal">Dove siamo</span>
-    <h2 class="section-title reveal" id="info-title">
-      <em>Informazioni</em>
-    </h2>
-    <div class="ornament reveal" aria-hidden="true"><div class="ornament-dot"></div></div>
+.section-label {
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.8rem;
+  display: block;
+}
 
-    <div class="reveal">
-      <div class="info__block">
-        <div class="info__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/>
-            <circle cx="12" cy="10" r="3"/>
-          </svg>
-        </div>
-        <div>
-          <span class="info__label">Indirizzo</span>
-          <p class="info__value">
-            <a href="https://maps.google.com/?q=Via+Fontanelle+3+Sala+Consilina" target="_blank" rel="noopener">
-              Via Fontanelle, 3 — Sala Consilina (SA)
-            </a>
-          </p>
-        </div>
-      </div>
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 8vw, 3rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--ivory);
+  margin-bottom: 1.2rem;
+}
 
-      <div class="info__block">
-        <div class="info__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.13 1 .37 1.97.71 2.9a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.93.34 1.9.58 2.9.71A2 2 0 0122 16.92z"/>
-          </svg>
-        </div>
-        <div>
-          <span class="info__label">Telefono</span>
-          <p class="info__value"><a href="tel:0975209831">0975 209831</a></p>
-        </div>
-      </div>
+.section-title em {
+  font-style: italic;
+  color: var(--gold-light);
+}
 
-      <div class="info__block">
-        <div class="info__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <circle cx="12" cy="12" r="10"/>
-            <polyline points="12 6 12 12 16 14"/>
-          </svg>
-        </div>
-        <div>
-          <span class="info__label">Orario</span>
-          <p class="info__value">Mar–Dom: 12–15 &amp; 18–00 &nbsp;|&nbsp; Lun: Chiuso</p>
-        </div>
-      </div>
+.ornament {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
 
-      <div class="info__block">
-        <div class="info__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2 9m5-9v9m5-9v9m-5-9h5"/>
-          </svg>
-        </div>
-        <div>
-          <span class="info__label">Servizi</span>
-          <p class="info__value">Consumazione sul posto · Asporto</p>
-        </div>
-      </div>
+.ornament::before,
+.ornament::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(197,164,106,0.4));
+}
 
-      <div class="info__block">
-        <div class="info__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <line x1="12" y1="1" x2="12" y2="23"/>
-            <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
-          </svg>
-        </div>
-        <div>
-          <span class="info__label">Prezzi</span>
-          <p class="info__value">Pranzo 17,90€ · Cena 24,90€</p>
-          <p style="font-size:0.68rem; color:rgba(245,240,232,0.38); margin-top:0.25rem; letter-spacing:0.03em;">Bevande e coperto (1,50€) esclusi</p>
-        </div>
-      </div>
-    </div>
-  </section>
+.ornament::after {
+  background: linear-gradient(270deg, transparent, rgba(197,164,106,0.4));
+}
 
-  <!-- ══ FOOTER ════════════════════════════ -->
-  <footer>
-    <p class="footer__logo">Umi Sushi</p>
-    <p class="footer__sub">Sala Consilina · Campania</p>
-    <div class="footer__line" aria-hidden="true"></div>
-    <p class="footer__copy">© 2025 Umi Sushi · Via Fontanelle, 3 · 84036 Sala Consilina (SA)</p>
-  </footer>
+.ornament-dot {
+  width: 5px;
+  height: 5px;
+  background: var(--gold);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
 
-  <!-- ══ STICKY BOTTOM CTA ═══════════════ -->
-  <div class="sticky-cta" role="navigation" aria-label="Azioni rapide">
-    <a href="tel:0975209831" class="sticky-cta__phone" aria-label="Prenota al telefono">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.13 1 .37 1.97.71 2.9a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.93.34 1.9.58 2.9.71A2 2 0 0122 16.92z"/>
-      </svg>
-      Prenota Ora
-    </a>
-    <a href="https://maps.google.com/?q=Via+Fontanelle+3+Sala+Consilina" target="_blank" rel="noopener" class="sticky-cta__maps" aria-label="Apri su Google Maps">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/>
-        <circle cx="12" cy="10" r="3"/>
-      </svg>
-    </a>
-  </div>
+/* ══════════════════════════════
+   ABOUT STRIP
+   ══════════════════════════════ */
+.about {
+  background: var(--charcoal);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+}
 
-  <!-- ══ SCRIPTS ════════════════════════════ -->
-  <script>
-    // Hero background
-    window.addEventListener('load', () => {
-      document.getElementById('heroBg').classList.add('loaded');
-    });
+.about__badges {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  max-width: 420px;
+  margin: 0 auto;
+  border: 1px solid rgba(197,164,106,0.1);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
 
-    // Scroll reveal
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    reveals.forEach(el => observer.observe(el));
+.about__badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 1.1rem 0.8rem;
+  border: 1px solid rgba(197,164,106,0.08);
+}
 
-    // ─── Orari ─────────────────────────────────────────────────────
-    const DAYS = ['Domenica','Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato'];
-    const DAYS_SHORT = ['Dom','Lun','Mar','Mer','Gio','Ven','Sab'];
-    // true = aperto (pranzo 12-15 e cena 18-00), false = chiuso
-    const OPEN = [true, false, true, true, true, true, true]; // 0=Dom … 6=Sab
+.about__badge-value {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 5.5vw, 1.8rem);
+  font-weight: 400;
+  color: var(--gold);
+  line-height: 1;
+}
 
-    function getRomeNow() {
-      return new Date(new Date().toLocaleString('en-US', { timeZone: 'Europe/Rome' }));
-    }
+.about__badge-label {
+  font-size: 0.52rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(245,240,232,0.45);
+  text-align: center;
+  line-height: 1.4;
+}
 
-    function isLunch(mins)  { return mins >= 720  && mins < 900; }  // 12:00–15:00
-    function isDinner(mins) { return mins >= 1080 && mins < 1440; } // 18:00–00:00
+.about__sep {
+  display: none;
+}
 
-    function nextOpening(fromDay, fromMins) {
-      // cerca la prossima sessione aperta
-      for (let offset = 0; offset <= 7; offset++) {
-        const d = (fromDay + offset) % 7;
-        if (!OPEN[d]) continue;
-        if (offset === 0) {
-          // stesso giorno: controlla se c'è ancora una sessione
-          if (fromMins < 720)  return { day: d, session: 'pranzo', offset };
-          if (fromMins < 1080) return { day: d, session: 'cena', offset };
-          // dopo la cena → prossimo giorno
-          continue;
-        }
-        return { day: d, session: 'pranzo', offset };
-      }
-      return null;
-    }
+/* ══════════════════════════════
+   EXPERIENCE
+   ══════════════════════════════ */
+.experience {
+  background: var(--midnight);
+  text-align: left;
+}
 
-    function buildHours() {
-      const now  = getRomeNow();
-      const day  = now.getDay();
-      const mins = now.getHours() * 60 + now.getMinutes();
+.experience__text {
+  font-size: 1rem;
+  font-weight: 300;
+  color: rgba(245,240,232,0.72);
+  line-height: 1.85;
+  margin-bottom: 2rem;
+}
 
-      // ── Badge + card oggi ──
-      const badge    = document.getElementById('statusBadge');
-      const todayName = document.getElementById('todayName');
-      const sessions = document.getElementById('todaySessions');
-      const closedMsg = document.getElementById('todayClosed');
-      const lunchCard  = document.getElementById('sessionLunch');
-      const dinnerCard = document.getElementById('sessionDinner');
+.experience__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: rgba(197,164,106,0.1);
+  border: 1px solid rgba(197,164,106,0.1);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-top: 2rem;
+}
 
-      const nextBanner = document.getElementById('hoursNextBanner');
-      const nextTimeEl = document.getElementById('hoursNextTime');
+.exp-card {
+  background: var(--charcoal);
+  padding: 1.25rem 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  min-height: 72px;
+  transition: background var(--transition);
+}
 
-      function showNextBanner(text) {
-        if (!nextBanner || !nextTimeEl) return;
-        nextTimeEl.textContent = text;
-        nextBanner.style.display = 'flex';
-      }
+.exp-card:active {
+  background: rgba(197,164,106,0.06);
+}
 
-      todayName.textContent = DAYS[day];
+.exp-card__icon {
+  font-size: 1.6rem;
+  flex-shrink: 0;
+  width: 2.2rem;
+  text-align: center;
+}
 
-      const isOpenNow = OPEN[day] && (isLunch(mins) || isDinner(mins));
+.exp-card__body {
+  flex: 1;
+}
 
-      if (isOpenNow) {
-        badge.textContent = 'Aperto ora';
-        badge.className   = 'status-badge open';
-        sessions.style.display = 'flex';
-        closedMsg.style.display = 'none';
+.exp-card__title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--ivory);
+  margin-bottom: 0.15rem;
+}
 
-        lunchCard.classList.toggle('active', isLunch(mins));
-        dinnerCard.classList.toggle('active', isDinner(mins));
+.exp-card__desc {
+  font-size: 0.72rem;
+  color: rgba(245,240,232,0.45);
+  letter-spacing: 0.02em;
+  line-height: 1.45;
+}
 
-        // prossima chiusura
-        if (isLunch(mins)) {
-          showNextBanner('Chiude alle 15:00 · Riapre alle 18:00');
-        } else {
-          showNextBanner('Chiude a mezzanotte');
-        }
-      } else {
-        badge.textContent = 'Attualmente chiuso';
-        badge.className   = 'status-badge closed';
-        sessions.style.display = OPEN[day] ? 'flex' : 'none';
-        closedMsg.style.display = OPEN[day] ? 'none' : 'block';
+/* Banner prossima apertura */
+.hours__next-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1rem;
+  background: rgba(197,164,106,0.08);
+  border: 1px solid rgba(197,164,106,0.28);
+  border-radius: var(--radius-sm);
+  margin-top: 0.2rem;
+}
 
-        if (OPEN[day]) {
-          lunchCard.classList.remove('active');
-          dinnerCard.classList.remove('active');
-          showNextBanner('Riapre oggi alle 18:00');
-        } else {
-          const next = nextOpening(day, mins);
-          if (next) {
-            const label = next.offset === 0 ? 'oggi' : next.offset === 1 ? 'domani' : DAYS[next.day];
-            showNextBanner(`${label.charAt(0).toUpperCase() + label.slice(1)} alle 12:00`);
-          }
-        }
-      }
+.hours__next-banner-icon {
+  color: var(--gold);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
 
-      // ── Week pills ──
-      const pillsEl = document.getElementById('weekPills');
-      pillsEl.innerHTML = '';
-      DAYS_SHORT.forEach((name, i) => {
-        const pill = document.createElement('div');
-        pill.className = 'hours__pill'
-          + (i === day ? ' is-today' : '')
-          + (!OPEN[i] ? ' is-closed-day' : '');
-        pill.innerHTML = `<span class="hours__pill-day">${name}</span><div class="hours__pill-dot"></div>`;
-        pillsEl.appendChild(pill);
-      });
+.hours__next-banner-label {
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.2rem;
+}
 
-      // ── Lista completa ──
-      const listEl = document.getElementById('hoursList');
-      listEl.innerHTML = '';
-      DAYS.forEach((name, i) => {
-        const item = document.createElement('div');
-        item.className = 'hours__item' + (i === day ? ' is-today' : '');
-        if (OPEN[i]) {
-          item.innerHTML = `
-            <span class="hours__item-day">${name}</span>
-            <span class="hours__item-time">12:00 – 15:00 &nbsp;·&nbsp; 18:00 – 00:00</span>`;
-        } else {
-          item.innerHTML = `
-            <span class="hours__item-day">${name}</span>
-            <span class="hours__item-closed">Chiuso</span>`;
-        }
-        listEl.appendChild(item);
-      });
-    }
+.hours__next-banner-time {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--ivory);
+  line-height: 1.1;
+}
 
-    buildHours();
-  </script>
+/* Riepilogo rapido orari */
+.hours__schedule-summary {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem 1rem;
+  margin-top: 1.3rem;
+  padding: 1rem 1.2rem;
+  background: var(--midnight);
+  border: 1px solid rgba(197,164,106,0.1);
+  border-radius: var(--radius-sm);
+}
 
-</body>
-</html>
+.hours__schedule-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.hours__schedule-days {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--ivory);
+  white-space: nowrap;
+}
+
+.hours__schedule-times {
+  font-size: 0.7rem;
+  color: rgba(245,240,232,0.5);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.hours__schedule-item--closed .hours__schedule-days {
+  color: rgba(245,240,232,0.35);
+}
+
+.hours__schedule-item--closed .hours__schedule-times {
+  font-style: italic;
+  color: rgba(245,240,232,0.28);
+}
+
+.hours__schedule-sep {
+  color: rgba(197,164,106,0.25);
+  font-size: 0.9rem;
+  align-self: center;
+}
+
+/* ══════════════════════════════
+   ABOUT US
+   ══════════════════════════════ */
+.about-us {
+  background: var(--midnight);
+}
+
+.about-us__quote {
+  font-family: var(--font-display);
+  font-size: clamp(1.55rem, 6vw, 2.1rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--ivory);
+  line-height: 1.4;
+  margin-bottom: 2rem;
+  position: relative;
+  padding-left: 1.4rem;
+  border-left: 2px solid var(--gold);
+}
+
+.about-us__text {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: rgba(245,240,232,0.65);
+  line-height: 1.9;
+  margin-bottom: 2.5rem;
+}
+
+.about-us__pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid rgba(197,164,106,0.12);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.pillar {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  padding: 1.2rem 1.3rem;
+  background: var(--charcoal);
+  border-bottom: 1px solid rgba(197,164,106,0.08);
+  transition: background var(--transition);
+}
+
+.pillar:last-child { border-bottom: none; }
+
+.pillar:active { background: rgba(197,164,106,0.06); }
+
+.pillar__num {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--gold);
+  opacity: 0.5;
+  min-width: 28px;
+  line-height: 1;
+}
+
+.pillar__body {}
+
+.pillar__title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--ivory);
+  margin-bottom: 0.15rem;
+}
+
+.pillar__desc {
+  font-size: 0.72rem;
+  color: rgba(245,240,232,0.45);
+  letter-spacing: 0.03em;
+  line-height: 1.5;
+}
+
+/* ══════════════════════════════
+   ORARI
+   ══════════════════════════════ */
+.hours {
+  background: var(--charcoal);
+}
+
+/* Card "oggi" */
+.hours__today-card {
+  background: var(--midnight);
+  border: 1px solid rgba(197,164,106,0.2);
+  border-radius: var(--radius-md);
+  padding: 1.4rem 1.3rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.hours__today-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hours__today-day {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: var(--ivory);
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 100px;
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.status-badge.closed {
+  background: rgba(180,60,60,0.15);
+  color: #E07070;
+  border: 1px solid rgba(180,60,60,0.25);
+}
+
+.status-badge.open {
+  background: rgba(60,150,80,0.15);
+  color: #70C882;
+  border: 1px solid rgba(60,150,80,0.25);
+}
+
+.status-badge::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: pulse 2s infinite;
+}
+
+.hours__today-sessions {
+  display: flex;
+  gap: 0.7rem;
+}
+
+.hours__session {
+  flex: 1;
+  background: rgba(197,164,106,0.06);
+  border: 1px solid rgba(197,164,106,0.12);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.hours__session.active {
+  background: rgba(197,164,106,0.12);
+  border-color: rgba(197,164,106,0.35);
+}
+
+.hours__session-label {
+  font-size: 0.58rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(245,240,232,0.4);
+}
+
+.hours__session.active .hours__session-label {
+  color: var(--gold);
+}
+
+.hours__session-time {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--ivory);
+}
+
+.hours__today-closed {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-style: italic;
+  color: rgba(245,240,232,0.3);
+}
+
+.hours__next {
+  font-size: 0.68rem;
+  color: rgba(245,240,232,0.4);
+  letter-spacing: 0.05em;
+}
+
+.hours__next strong {
+  color: var(--gold-light);
+  font-weight: 400;
+}
+
+/* Week pills — removed */
+
+/* Detail list — removed */
+
+/* ══════════════════════════════
+   RECENSIONI
+   ══════════════════════════════ */
+.reviews {
+  background: var(--midnight);
+}
+
+.reviews__score {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.reviews__score-num {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.reviews__score-max {
+  font-size: 0.75rem;
+  color: rgba(245,240,232,0.35);
+  letter-spacing: 0.1em;
+}
+
+.stars {
+  color: var(--gold);
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.3rem;
+}
+
+.reviews__count {
+  font-size: 0.65rem;
+  color: rgba(245,240,232,0.4);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+}
+
+.review-card {
+  background: var(--charcoal);
+  border: 1px solid rgba(197,164,106,0.1);
+  border-radius: var(--radius-md);
+  padding: 1.4rem 1.3rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.review-card::before {
+  content: '"';
+  position: absolute;
+  top: -0.5rem;
+  left: 1rem;
+  font-family: var(--font-display);
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--gold);
+  opacity: 0.2;
+}
+
+.review-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.8rem;
+}
+
+.review-card__name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--ivory);
+}
+
+.review-card__date {
+  font-size: 0.62rem;
+  color: rgba(245,240,232,0.35);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  margin-left: 0.5rem;
+  padding-top: 0.15rem;
+}
+
+.review-card__stars {
+  color: var(--gold);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.7rem;
+}
+
+.review-card__text {
+  font-size: 0.85rem;
+  color: rgba(245,240,232,0.65);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* ══════════════════════════════
+   INFO / CONTATTI
+   ══════════════════════════════ */
+.info {
+  background: var(--charcoal);
+}
+
+.info__block {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid rgba(197,164,106,0.1);
+}
+
+.info__block:last-child { border-bottom: none; }
+
+.info__icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(197,164,106,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--gold);
+}
+
+.info__icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.info__label {
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(245,240,232,0.4);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.info__value {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--ivory);
+}
+
+.info__value a {
+  color: var(--gold-light);
+  transition: var(--transition);
+}
+
+.info__value a:hover {
+  color: var(--gold);
+}
+
+/* ══════════════════════════════
+   STICKY CTA BAR
+   ══════════════════════════════ */
+.sticky-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 0.9rem 1.5rem calc(0.9rem + env(safe-area-inset-bottom));
+  background: var(--charcoal);
+  border-top: 1px solid rgba(197,164,106,0.2);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  transform: translateY(100%);
+  animation: slideUp 0.5s 2s forwards;
+}
+
+.sticky-cta__phone {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  height: 48px;
+  background: var(--gold);
+  color: var(--midnight);
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.sticky-cta__phone:active {
+  transform: scale(0.98);
+  background: var(--gold-light);
+}
+
+.sticky-cta__phone svg {
+  width: 15px;
+  height: 15px;
+}
+
+.sticky-cta__maps {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(197,164,106,0.3);
+  border-radius: var(--radius-sm);
+  color: var(--gold);
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+
+.sticky-cta__maps:active {
+  background: rgba(197,164,106,0.1);
+}
+
+.sticky-cta__maps svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ══════════════════════════════
+   FOOTER
+   ══════════════════════════════ */
+footer {
+  background: var(--midnight);
+  padding: 2.5rem 1.5rem calc(5rem + env(safe-area-inset-bottom));
+  text-align: center;
+  border-top: 1px solid rgba(197,164,106,0.1);
+}
+
+.footer__logo {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 300;
+  letter-spacing: 0.25em;
+  color: var(--ivory);
+  margin-bottom: 0.3rem;
+}
+
+.footer__sub {
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(245,240,232,0.3);
+  margin-bottom: 1.5rem;
+}
+
+.footer__line {
+  width: 40px;
+  height: 1px;
+  background: rgba(197,164,106,0.3);
+  margin: 0 auto 1.5rem;
+}
+
+.footer__copy {
+  font-size: 0.62rem;
+  color: rgba(245,240,232,0.2);
+  letter-spacing: 0.1em;
+}
+
+/* ══════════════════════════════
+   ANIMATIONS
+   ══════════════════════════════ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.8); }
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.6; transform: scaleY(1); }
+  50%       { opacity: 1; transform: scaleY(1.2); }
+}
+
+/* ══════════════════════════════
+   REVEAL ON SCROLL
+   ══════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ══════════════════════════════
+   MEDIA QUERIES (tablet+)
+   ══════════════════════════════ */
+@media (min-width: 600px) {
+  :root {
+    --section-pad: 5rem 2.5rem;
+  }
+
+  .reviews__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .review-card {
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 900px) {
+  :root {
+    --section-pad: 6rem 4rem;
+  }
+
+  .sticky-cta {
+    max-width: 480px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100%);
+    animation: slideUpCenter 0.5s 2s forwards;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    border: 1px solid rgba(197,164,106,0.2);
+    border-bottom: none;
+  }
+}
+
+@keyframes slideUpCenter {
+  from { transform: translateX(-50%) translateY(100%); }
+  to   { transform: translateX(-50%) translateY(0); }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
