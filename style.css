@@ -279,49 +279,47 @@ section {
    ══════════════════════════════ */
 .about {
   background: var(--charcoal);
-  padding: 2.5rem 1.5rem;
+  padding: 2rem 1.5rem;
   text-align: center;
 }
 
 .about__badges {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 0;
-  max-width: 420px;
-  margin: 0 auto;
-  border: 1px solid rgba(197,164,106,0.1);
-  border-radius: var(--radius-sm);
-  overflow: hidden;
+  flex-wrap: wrap;
 }
 
 .about__badge {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.3rem;
-  padding: 1.1rem 0.8rem;
-  border: 1px solid rgba(197,164,106,0.08);
+  gap: 0.25rem;
+  padding: 0.6rem 1.2rem;
 }
 
 .about__badge-value {
   font-family: var(--font-display);
-  font-size: clamp(1.3rem, 5.5vw, 1.8rem);
+  font-size: 1.6rem;
   font-weight: 400;
   color: var(--gold);
   line-height: 1;
 }
 
 .about__badge-label {
-  font-size: 0.52rem;
-  letter-spacing: 0.18em;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(245,240,232,0.45);
-  text-align: center;
-  line-height: 1.4;
+  color: rgba(245,240,232,0.5);
+  white-space: nowrap;
 }
 
 .about__sep {
-  display: none;
+  width: 1px;
+  height: 32px;
+  background: rgba(197,164,106,0.25);
+  flex-shrink: 0;
 }
 
 /* ══════════════════════════════
